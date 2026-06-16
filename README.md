@@ -32,19 +32,19 @@ A Django-based authentication system where users can register, log in, and view 
 
 ### Admin Profile Page
 
-![Admin Profile](screenshots/Admin-Profile-Page1.jpg)
+![Admin Profile](screenshots/Admin-Profile-page(1).jpg)
 
-![Admin Profile](screenshots/Admin-Profile-Page2.jpg)
+![Admin Profile](screenshots/Admin-Profile-page(2).jpg)
 
-![Admin Profile](screenshots/Admin-Profile-Page3.jpg)
+![Admin Profile](screenshots/Admin-Profile-page(3).jpg)
 
-![Admin Profile](screenshots/Admin-Profile-Page4.jpg)
+![Admin Profile](screenshots/Admin-Profile-page(4).jpg)
 
 ### Django Admin Dashboard
 
-![Dashboard](screenshots/Django-Admin-Dashboard1.jpg)
+![Dashboard](screenshots/Django-Admin-Dashboard(1).jpg)
 
-![Dashboard](screenshots/Django-Admin-Dashboard2.jpg)
+![Dashboard](screenshots/Django-Admin-Dashboard(2).jpg)
 
 ## Author
 
