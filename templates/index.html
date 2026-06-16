@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/registration.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    
+</head>
+<body>
+    <div class="signup">
+    <h3 id="label">SIGN UP OR REGISTER HERE</h3>
+    <div class="form">
+        <form action="" method = "POST">
+            {% csrf_token %}
+            {% for i in fm%}
+                {{i.label_tag}} {{i}} {{i.errors|striptags}} <br><br>
+            {% endfor %}
+            <input type="submit" value="Signup" class="btn" id="signup">
+            <button class="btn" id="login"><a href="{% url 'logins' %}" id="logintext" style="text-decoration: none;color:rgb(8, 89, 126); font-weight: 900;">login</a></button>
+        </form>
+    </div>
+    </div>   
+</body>
+</html>

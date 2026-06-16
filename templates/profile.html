@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile </title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/profile.jpg' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+
+</head>
+<body>
+    <h1 id="heading">Hi, {{name}}!!!!</h1>
+
+    <!-- Display all users' profiles if the user is a superuser -->
+    <div class="profiles">
+        {% if users != None %}
+            <h2 id="heading2">ALL USERS PROFILE DETAILS</h2>
+            <div class="inprofiles">
+                {% for user in users %}
+                    <hr>
+                    <h3 style="text-decoration: underline;">{{user.username}}'s Profile details</h3>
+                    User Name: {{user.username}} <br>
+                    First Name: {{user.first_name}} <br>
+                    Last Name: {{user.last_name}} <br>
+                    Last Login: {{user.last_login}} <br>
+                    Date Joined: {{user.date_joined}} <br>
+                    Active Status: {{user.is_active}} <br>
+                    Staff Status: {{user.Staff_Status}} <br><br>
+                    <hr>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- User profile section -->
+    <div class="userprofile">
+        <h3 id="heading3">User: {{name}}</h3>
+        <div class="inuserprofile">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for i in fm %}
+                    {{i.label_tag}} {{i}} {{i.errors|striptags}} <br><br>
+                {% endfor %}
+                
+            </form>
+        </div>
+    </div>
+
+    <!-- Logout button form -->
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">Logout</button>
+    </form>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heading{
+          
+            background-image: linear-gradient(90deg,white,darkblue,skyblue,darkblue,darkblue,skyblue,darkblue,white);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 900;
+            text-transform: capitalize;
+            color: white;
+            
+        }
+
+        .profiles{
+            
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 2px solid darkblue;
+        }
+
+        .userprofile{
+            
+            padding: 30px;
+            text-transform: capitalize;
+            border: 2px solid darkblue;
+        }
+        #heading2{
+            background-image: linear-gradient(90deg,white,darkblue,skyblue,darkblue,darkblue,skyblue,darkblue,white);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-left: -30px;
+            margin-right: -30px;
+            margin-top: -30px;
+        }
+        .inprofiles{
+            
+           
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            text-transform: capitalize;
+            background-image: url('https://cdn.prod.website-files.com/5a9ee6416e90d20001b20038/64cfd8457401a5fdabe034c5_%20-%2028.png');
+            background-size: cover;
+        }
+
+        .inuserprofile{
+            background-image: url('https://cdn.prod.website-files.com/5a9ee6416e90d20001b20038/64cfd8457401a5fdabe034c5_%20-%2028.png');
+            background-size: cover;
+            margin: 20px;
+            padding: 20px;
+            padding-left: 30%;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #heading3{
+            background-image: linear-gradient(90deg,white,darkblue,skyblue,darkblue,darkblue,skyblue,darkblue,white);
+            color: white;
+            padding: 20px;
+            margin-top: -30px;
+            margin-left: -30px;
+            margin-right: -30px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="heading"> Hi, {{name}}!!!! </h1>
+    <form action="" method="POST">
+        
+        {% csrf_token %}
+
+        <div class="profiles">
+            {% if users != None %}
+        
+        <h2 id="heading2">ALL USERS PROFILE DETAILS</h2>
+        <div class="inprofiles">
+            {% for user in users %}
+            <hr>
+           <h3 style="text-decoration: underline;">{{user.username}}'s Profile details</h3>
+           User Name  :  {{user.username}} <br> First Name  :  {{user.first_name}} <br> Lasr Name  :  {{user.last_name}}<br> Last Login  :  {{user.last_login}} <br> Date Joined  :  {{user.date_joined}} <br> Active Status  :  {{user.is_active}} <br>Staff Status  :  {{user.Staff_Status}} <br><br>
+           <hr>
+        {% endfor %} 
+        </div> 
+        
+        {% endif %}
+        </div>
+        <div class="userprofile">
+            <h3 id="heading3">User : {{name}} </h3>
+        <div class="inuserprofile">
+            {% for i in fm %}
+            {{i.label_tag}}{{i}}{{i.errors|striptags}} <br><br>
+            {% endfor %}
+        </div>
+        </div>
+    </form>
+</body>
+</html> -->
